@@ -1,4 +1,6 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const pageTitle = "About Me";
@@ -31,17 +33,18 @@ const textCase = "uppercase";
         <style define:vars={{skillColor, fontWeight, textCase}}>
             h1 {
                 color: purple;
-                font-size: 4rem;}
+                font-size: 4rem;
+              }
             .skill {
                 color: var(--skillColor);
                 font-weight: var(--fontWeight);
                 text-transform: var(--textCase);
+                }
         </style>
     </head>
 	<body>
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+		<Navigation />
+
 
   <h1>{pageTitle}</h1>
   <h1>This is a Little About Me</h1>
@@ -52,6 +55,14 @@ const textCase = "uppercase";
   <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>	
 
   <p>Here are a few facts about me:</p>
+
+{happy && <p>I am happy to be learning Astro!</p>}
+
+{finished && <p>I finished this tutorial!</p>}
+
+{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+
 <ul>
   <li>My name is {identity.firstName}.</li>
   <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
@@ -65,13 +76,6 @@ const textCase = "uppercase";
 </ul>
 
 
-{happy && <p>I am happy to be learning Astro!</p>}
-
-{finished && <p>I finished this tutorial!</p>}
-
-{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
-
-
+  <Footer />
 </body>
 </html>
